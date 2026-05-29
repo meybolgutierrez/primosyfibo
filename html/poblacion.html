@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌆 Crecimiento Poblacional con Fibonacci</title>
+  <link rel="stylesheet" href="../css/poblacion.css">
+</head>
+<body>
+<div class="container">
+
+  <!-- ENCABEZADO -->
+  <div class="hero">
+    <h1>🌆 Sistema Predictivo de Crecimiento Poblacional</h1>
+    <p>Aplicación de la serie de Fibonacci para analizar el crecimiento urbano</p>
+    <div class="badge">Estudiante: Meybol Yara Gutierrez Calle</div>
+  </div>
+
+  <!-- CONTEXTO DEL PROBLEMA -->
+  <div class="card">
+    <h2>🌍 Problema real</h2>
+    <p>Muchas ciudades de Bolivia y del mundo crecen rápidamente. Esto genera: tráfico, falta de agua, contaminación, escasez de viviendas y saturación de servicios públicos. Este sistema utiliza la serie de Fibonacci para simular cómo una población puede crecer progresivamente con el tiempo.</p>
+  </div>
+
+  <!-- GRID FORMULARIO Y RESULTADOS -->
+  <div class="grid">
+    <!-- FORMULARIO -->
+    <div class="card">
+      <h2>📝 Datos de simulación</h2>
+      <div class="form-group">
+        <label>👥 Población inicial (habitantes)</label>
+        <input type="number" id="poblacion" value="1000">
+      </div>
+      <div class="form-group">
+        <label>📅 Cantidad de años a proyectar</label>
+        <input type="number" id="anios" value="10">
+      </div>
+      <div class="form-group">
+        <label>🏙️ Tipo de ciudad</label>
+        <select id="ciudad">
+          <option>Pequeña</option>
+          <option>Mediana</option>
+          <option>Grande</option>
+        </select>
+      </div>
+      <button id="btnCalcular">📈 Calcular crecimiento</button>
+    </div>
+
+    <!-- RESULTADOS -->
+    <div class="card">
+      <h2>📊 Resultados</h2>
+      <div id="resultado">
+        <div class="result-box">Complete los datos y presione el botón.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCION VISIBLE: CODIGO FUENTE DE FIBONACCI -->
+  <div class="card codigo-card">
+    <h3 style="color:#ffb347;">📜 Código fuente: Serie de Fibonacci aplicada al crecimiento</h3>
+    <p style="color:#caf0f8; margin-bottom: 1rem;">La siguiente función implementa la lógica de Fibonacci para proyectar la población año a año:</p>
+
+    <h4 style="color:#90e0ef;">Función que genera la secuencia de Fibonacci</h4>
+    <pre style="background: #02212b; color: #e0f2fe; padding: 1rem; border-radius: 1rem; overflow-x: auto; font-family: monospace; font-size: 0.85rem;">
+function generarFibonacci(terminos) {
+  if (terminos <= 0) return [];
+  if (terminos === 1) return [1];
+  let serie = [1, 1];
+  for (let i = 2; i < terminos; i++) {
+    serie.push(serie[i-1] + serie[i-2]);
+  }
+  return serie;
+}</pre>
+    <p style="color:#9ad7e8; font-size:0.85rem;">🔹 <strong>Explicación:</strong> La función recibe la cantidad de años y devuelve la serie de Fibonacci (1, 1, 2, 3, 5, 8...). Cada número representa el factor de crecimiento respecto al año anterior. Luego se multiplica por un factor base para obtener el incremento poblacional real.</p>
+
+    <h4 style="color:#90e0ef; margin-top: 1rem;">Ejemplo de uso integrado</h4>
+    <pre style="background: #02212b; color: #e0f2fe; padding: 1rem; border-radius: 1rem; overflow-x: auto; font-family: monospace; font-size: 0.85rem;">
+const anios = 8;
+const fibonacci = generarFibonacci(anios);
+// fibonacci = [1, 1, 2, 3, 5, 8, 13, 21]
+// La población en el año n = población inicial * suma de los primeros n factores</pre>
+    <p style="color:#9ad7e8; font-size:0.85rem;">🔹 El sistema calcula la población acumulada año a año usando la suma de los factores de Fibonacci y la muestra en una tabla, permitiendo visualizar el crecimiento acelerado típico de las ciudades.</p>
+  </div>
+  <!-- BOTÓN PARA VOLVER AL MENÚ PRINCIPAL -->
+  <div style="text-align: center; margin-top: 1rem;">
+    <a href="../index.html" class="btn-volver">← Volver al menú principal</a>
+  </div>
+</div>
+<script src="../js/poblacion.js"></script>
+</body>
+</html>

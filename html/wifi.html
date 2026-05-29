@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📡 Optimización WiFi con Números Primos</title>
+  <link rel="stylesheet" href="../css/wifi.css">
+  <link rel="stylesheet" href="css/wifi.css">
+</head>
+<body>
+<div class="container">
+
+  <!-- ENCABEZADO -->
+  <div class="hero">
+    <h1>📡 Sistema Inteligente de Optimización WiFi</h1>
+    <p>Aplicación de números primos para reducir interferencias y mejorar redes inalámbricas</p>
+  </div>
+
+  <!-- CONTEXTO DEL PROBLEMA -->
+  <div class="card">
+    <h2>🌍 Problema real</h2>
+    <p>En edificios, oficinas y hogares existen muchas redes WiFi funcionando al mismo tiempo. Cuando varias redes usan los mismos canales, aparece interferencia y el internet se vuelve lento. Este sistema utiliza números primos como modelo matemático para recomendar canales menos repetitivos y reducir saturación.</p>
+  </div>
+
+  <!-- GRID FORMULARIO Y RESULTADOS -->
+  <div class="grid">
+    <!-- FORMULARIO -->
+    <div class="card">
+      <h2>📝 Datos de red</h2>
+      <div class="form-group">
+        <label>📶 Cantidad de redes cercanas</label>
+        <input type="number" id="redes" value="12">
+      </div>
+      <div class="form-group">
+        <label>📡 Canal actual del router</label>
+        <input type="number" id="canal" value="6">
+      </div>
+      <div class="form-group">
+        <label>🏢 Tamaño del lugar</label>
+        <select id="lugar">
+          <option>Pequeño</option>
+          <option>Mediano</option>
+          <option>Grande</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>⚠️ Nivel de interferencia</label>
+        <select id="interferencia">
+          <option>Baja</option>
+          <option>Media</option>
+          <option>Alta</option>
+        </select>
+      </div>
+      <button id="btnOptimizar">🚀 Optimizar red</button>
+    </div>
+
+    <!-- RESULTADOS -->
+    <div class="card">
+      <h2>📊 Resultados</h2>
+      <div id="resultado">
+        <div class="result-box">Completa el formulario y presiona “Optimizar red”.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCION VISIBLE: CODIGO FUENTE DE NUMEROS PRIMOS -->
+  <div class="card codigo-card">
+    <h3 style="color:#ffb347;">🔢 Código fuente: verificación de números primos</h3>
+    <p style="color:#caf0f8; margin-bottom: 1rem;">La siguiente función es la que implementa la lógica de números primos dentro del sistema de optimización WiFi:</p>
+
+    <h4 style="color:#90e0ef;">Función para determinar si un canal (o número) es primo</h4>
+    <pre style="background: #02212b; color: #e0f2fe; padding: 1rem; border-radius: 1rem; overflow-x: auto; font-family: monospace; font-size: 0.85rem;">
+function esPrimo(numero) {
+  if (numero <= 1) return false;
+  for (let i = 2; i < numero; i++) {
+    if (numero % i == 0) return false;
+  }
+  return true;
+}</pre>
+    <p style="color:#9ad7e8; font-size:0.85rem;">🔹 <strong>Explicación:</strong> La función recibe un número (canal WiFi) y verifica si es divisible solo por 1 y por sí mismo. Los canales primos (2,3,5,7,11,13,17,19) tienen menos interferencia porque se solapan menos con canales pares o múltiplos. El sistema los recomienda automáticamente.</p>
+
+    <h4 style="color:#90e0ef; margin-top: 1rem;">Ejemplo de uso integrado</h4>
+    <pre style="background: #02212b; color: #e0f2fe; padding: 1rem; border-radius: 1rem; overflow-x: auto; font-family: monospace; font-size: 0.85rem;">
+const canalActual = 6;
+if (esPrimo(canalActual)) {
+  console.log("Canal primo, buena elección");
+} else {
+  console.log("Canal no primo, se recomienda cambiar a 7, 11 o 13");
+}</pre>
+    <p style="color:#9ad7e8; font-size:0.85rem;">🔹 En la práctica, el sistema analiza el canal actual, calcula todos los canales primos hasta 20 y recomienda el mejor según la interferencia.</p>
+  </div>
+  <!-- BOTÓN PARA VOLVER AL MENÚ PRINCIPAL -->
+  <div style="text-align: center; margin-top: 1rem;">
+    <a href="../index.html" class="btn-volver">← Volver al menú principal</a>
+  </div>
+</div>
+<script src="../js/wifi.js"></script>
+</body>
+</html>

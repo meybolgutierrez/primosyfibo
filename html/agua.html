@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Control Inteligente de Agua | Fibonacci + Primos</title>
+  <link rel="stylesheet" href="../css/agua.css">
+</head>
+<body>
+<div class="container">
+
+  <!-- SECCION: PORTADA -->
+  <div class="hero">
+    <h1>Sistema Inteligente de Control de Agua</h1>
+    <p>Fibonacci + Números Primos contra la escasez hídrica en Bolivia y el mundo</p>
+    <div class="badge">Estudiante: Meybol Yara Gutierrez Calle</div>
+  </div>
+
+  <!-- SECCION: CONTEXTO DEL PROBLEMA Y ALGORITMO -->
+  <div class="card contexto-card">
+    <div class="contexto-header">
+      <h2 class="contexto-title">El desafío del agua en Bolivia</h2>
+    </div>
+    <div class="contexto-texto">
+      <p>En <strong>La Paz y el Altiplano</strong>, la escasez de agua y el racionamiento afectan a miles de familias. El desperdicio y la falta de previsión agravan la situación.</p>
+      <p>Este sistema usa <strong>Fibonacci</strong> para proyectar el crecimiento del consumo y <strong>números primos</strong> para detectar alertas tempranas.</p>
+    </div>
+
+    <!-- RECUADRO VISUAL: FIBONACCI Y PRIMOS -->
+    <div class="algoritmo-visual">
+      <div class="fibonacci-preview">
+        <span>Secuencia Fibonacci:</span>
+        <div id="demoFibonacci" class="fibonacci-demo">1, 1, 2, 3, 5, 8, 13...</div>
+        <button id="verFibonacciBtn" class="mini-btn">Mostrar más +</button>
+      </div>
+      <div class="primos-preview">
+        <span>Números primos:</span>
+        <div class="primos-demo">2, 3, 5, 7, 11, 13, 17, 19, 23...</div>
+        <span class="tooltip">¿Qué es un primo?<span class="tooltip-text">Solo divisible entre 1 y sí mismo</span></span>
+      </div>
+    </div>
+
+    <!-- DETALLE DESPLEGABLE DEL ALGORITMO -->
+    <details class="algoritmo-detalle">
+      <summary>Ver explicación detallada del algoritmo</summary>
+      <p><strong>Fibonacci</strong> modela el aumento diario del consumo (día1: base, día2: base, día3: suma de los dos anteriores...). <strong>Números primos</strong> señalan días o consumos "críticos" (posibles fugas o derroches). Se proyecta la duración del agua almacenada y se recomienda ahorro.</p>
+    </details>
+  </div>
+
+  <!-- SECCION: FORMULARIO Y RESULTADOS (DOS COLUMNAS) -->
+  <div class="grid-2">
+
+    <!-- COLUMNA IZQUIERDA: FORMULARIO DE ENTRADA -->
+    <div class="card">
+      <h2 style="color:#48cae4;">Datos de entrada</h2>
+      <form id="aguaForm">
+        <div class="form-group">
+          <label>Número de personas en el hogar</label>
+          <input type="number" id="personas" value="4" min="1" step="1" required>
+        </div>
+        <div class="form-group">
+          <label>Consumo diario TOTAL (litros/día)</label>
+          <input type="number" id="consumoDiario" value="180" min="1" step="10" required>
+          <small style="color:#b0e0ee;">Ej: una familia de 4 gasta entre 150-300 L/día</small>
+        </div>
+        <div class="form-group">
+          <label>Días a proyectar (crecimiento Fibonacci)</label>
+          <input type="number" id="dias" value="15" min="1" max="60" step="1" required>
+        </div>
+        <div class="form-group">
+          <label>Capacidad del tanque / reserva (litros)</label>
+          <input type="number" id="capacidadTanque" value="2500" min="100" step="100" required>
+        </div>
+        <button type="button" id="btnAnalizar">
+          Analizar consumo →
+        </button>
+      </form>
+      <div style="margin-top: 1rem; font-size: 0.8rem; color: #9ad7e8; text-align: center;">
+        Fibonacci: crecimiento progresivo del consumo (día 1: base, día 2: base, día 3: suma...)<br>
+        Números primos: si algún consumo diario es primo → alerta de consumo atípico.
+      </div>
+    </div>
+
+    <!-- COLUMNA DERECHA: PANEL DE RESULTADOS -->
+    <div class="card" id="resultadosPanel">
+      <h2 style="color:#48cae4;">Resultados del análisis</h2>
+      <div id="resultadosDinamicos">
+        <div class="result-box" style="text-align: center; background:#033b47;">
+          Completa el formulario y haz clic en "Analizar consumo"
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCION: CONCLUSION Y AYUDA MATEMATICA -->
+  <div class="card conclusion-card">
+    <h3>Conclusión & Ayuda matemática</h3>
+    <div class="conclusion-grid">
+      <div class="conclusion-item">
+        <h4>Crecimiento tipo Fibonacci</h4>
+        <p>El consumo puede dispararse como la serie de Fibonacci si no se controla. Anticiparse evita quedarse sin agua.</p>
+      </div>
+      <div class="conclusion-item">
+        <h4>Alertas con números primos</h4>
+        <p>Consumos primos = anomalías. Detecta fugas o derroches a tiempo.</p>
+      </div>
+      <div class="conclusion-item">
+        <h4>Solución escalable</h4>
+        <p>Desde una casa hasta una comunidad. Planifica tu reserva y ahorra agua.</p>
+      </div>
+    </div>
+  </div>
+    <!-- SECCION VISIBLE: CODIGO FUENTE DE FIBONACCI Y PRIMOS (SIN BOTON) -->
+  <div class="card codigo-card">
+    <h3 style="color:#ffb347;">📜 Código fuente: Fibonacci y Números Primos</h3>
+    <p style="color:#caf0f8; margin-bottom: 1rem;">Las siguientes funciones son las que implementan la lógica matemática dentro del sistema:</p>
+    
+    <h4 style="color:#90e0ef;">1. Función para generar la serie de Fibonacci (crecimiento del consumo)</h4>
+    <pre style="background: #02212b; color: #e0f2fe; padding: 1rem; border-radius: 1rem; overflow-x: auto; font-family: monospace; font-size: 0.85rem;">
+function generarSerieFibonacci(base, dias) {
+  if (dias <= 0) return [];
+  if (dias === 1) return [base];
+  let serie = [base, base];
+  for (let i = 2; i < dias; i++) {
+    let siguiente = serie[i-1] + serie[i-2];
+    serie.push(siguiente);
+  }
+  return serie.slice(0, dias);
+}</pre>
+    <p style="color:#9ad7e8; font-size:0.85rem;">🔹 <strong>Explicación:</strong> Recibe el consumo base (litros/día) y la cantidad de días. Devuelve un arreglo donde cada día el consumo es la suma de los dos días anteriores (crecimiento Fibonacci).</p>
+
+    <h4 style="color:#90e0ef; margin-top: 1rem;">2. Función para verificar si un número es primo (alerta de consumo anómalo)</h4>
+    <pre style="background: #02212b; color: #e0f2fe; padding: 1rem; border-radius: 1rem; overflow-x: auto; font-family: monospace; font-size: 0.85rem;">
+function esPrimo(num) {
+  if (num < 2) return false;
+  if (num === 2) return true;
+  if (num % 2 === 0) return false;
+  for (let i = 3; i <= Math.sqrt(num); i += 2) {
+    if (num % i === 0) return false;
+  }
+  return true;
+}</pre>
+    <p style="color:#9ad7e8; font-size:0.85rem;">🔹 <strong>Explicación:</strong> Evalúa si un número es primo. Detecta consumos diarios que sean primos y genera alertas de posibles fugas o derroches.</p>
+
+    <h4 style="color:#90e0ef; margin-top: 1rem;">3. Ejemplo de uso integrado</h4>
+    <pre style="background: #02212b; color: #e0f2fe; padding: 1rem; border-radius: 1rem; overflow-x: auto; font-family: monospace; font-size: 0.85rem;">
+// Generar consumos para 15 días con base 180 litros
+const consumos = generarSerieFibonacci(180, 15);
+// Verificar si el consumo del día 5 es primo
+if (esPrimo(Math.round(consumos[4]))) {
+  alert("Consumo primo detectado, revisar fuga");
+}</pre>
+    <p style="color:#9ad7e8; font-size:0.85rem;">🔹 El sistema calcula todos los consumos, resalta los días primos y muestra una alerta visual.</p>
+  </div>
+    <!-- BOTÓN PARA VOLVER AL MENÚ PRINCIPAL -->
+  <div style="text-align: center; margin-top: 1rem;">
+    <a href="../index.html" class="btn-volver">← Volver al menú principal</a>
+  </div>
+</div>
+
+<!-- SCRIPT PRINCIPAL -->
+<script src="../js/agua.js"></script>
+</body>
+</html>
