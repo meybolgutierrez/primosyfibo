@@ -3,7 +3,7 @@
 **Fibonacci y Números Primos aplicados a la vida cotidiana**
 
 * **Estudiante:** Meybol Yara Gutierrez Calle
-* **Proyecto:** Desafío Web - Ciencias Exactas y Desarrollo de Software
+  
 
 ---
 
