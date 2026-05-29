@@ -7,13 +7,13 @@
 
 ---
 
-## 📌 Descripción del proyecto
+##  Descripción del proyecto
 
 Este proyecto contiene tres herramientas interactivas que resuelven problemas reales del contexto de Bolivia y el mundo utilizando la **serie de Fibonacci** y los **números primos**. El sitio web está diseñado de forma modular, responsiva y organizada para ofrecer una experiencia intuitiva a través de formularios dinámicos y procesamiento de datos en tiempo real mediante JavaScript puro.
 
 ---
 
-## 🧩 Ejercicios y Soluciones Incluidos
+##  Ejercicios y Soluciones Incluidos
 
 ### 1. 💧 Control Inteligente de Agua
 * **Problema:** Escasez crónica y desperdicio de agua potable en La Paz y las regiones del Altiplano boliviano.
@@ -32,7 +32,7 @@ Este proyecto contiene tres herramientas interactivas que resuelven problemas re
 
 ---
 
-## 🧠 Modelado Matemático Aplicado
+##  Modelado Matemático Aplicado
 
 | Concepto | Aplicación Práctica en el Proyecto |
 | :--- | :--- |
@@ -41,7 +41,7 @@ Este proyecto contiene tres herramientas interactivas que resuelven problemas re
 
 ---
 
-## 📁 Estructura del Repositorio
+##  Estructura del Repositorio
 
 De acuerdo al árbol de directorios de Visual Studio Code, el proyecto se encuentra estructurado de la siguiente manera:
 
